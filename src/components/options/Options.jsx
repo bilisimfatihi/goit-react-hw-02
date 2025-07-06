@@ -1,6 +1,8 @@
-function Options({ updateFeedback }) {
+import styles from "./Options.module.css";
+
+function Options({ updateFeedback, totalFeedback }) {
   return (
-    <>
+    <div className={styles.opt}>
       <button
         onClick={() => {
           updateFeedback("good");
@@ -22,14 +24,16 @@ function Options({ updateFeedback }) {
       >
         Bad
       </button>
-      <button
-        onClick={() => {
-          updateFeedback("reset");
-        }}
-      >
-        Reset
-      </button>
-    </>
+      {totalFeedback > 0 && (
+        <button
+          onClick={() => {
+            updateFeedback("reset");
+          }}
+        >
+          Reset
+        </button>
+      )}
+    </div>
   );
 }
 

@@ -1,15 +1,14 @@
-function Feedback({ feedbacks }) {
-  const total = feedbacks.good + feedbacks.neutral + feedbacks.bad;
-  const positivePercentage =
-    total > 0 ? Math.round((feedbacks.good / total) * 100) : 0;
+import styles from "./Feedback.module.css";
+
+function Feedback({ feedbacks, totalFeedback, positivePercentage }) {
   return (
-    <>
-      <p>Good: {feedbacks.good}</p>
-      <p>Neutral: {feedbacks.neutral}</p>
-      <p>Bad: {feedbacks.bad}</p>
-      <p>Total: {total}</p>
-      <p>Positive: {positivePercentage}%</p>
-    </>
+    <ul className={styles.list}>
+      <li>Good: {feedbacks.good}</li>
+      <li>Neutral: {feedbacks.neutral}</li>
+      <li>Bad: {feedbacks.bad}</li>
+      <li>Total: {totalFeedback}</li>
+      <li>Positive: {positivePercentage}%</li>
+    </ul>
   );
 }
 
